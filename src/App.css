@@ -1,9 +1,13 @@
+/* ===== Global Reset Styles ===== */
+/* Remove default margins and padding from all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* Include padding/border in element width/height */
 }
 
+/* Make html, body, and root div take full height */
 html,
 body,
 #root {
@@ -11,33 +15,49 @@ body,
   width: 100%;
 }
 
+/* ===== Body and Global Styles ===== */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f5f5;
+  /* Light mode background */
   color: #333;
+  /* Light mode text */
   line-height: 1.6;
+  /* Space between text lines */
+  /* Smooth transition when switching to dark mode */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark mode styles - applied when body has 'dark-mode' class */
 body.dark-mode {
   background-color: #1a1a1a;
+  /* Dark background */
   color: #e0e0e0;
+  /* Light text for dark mode */
 }
 
+/* ===== App Layout ===== */
 .App {
   display: flex;
   flex-direction: column;
+  /* Stack elements vertically */
   min-height: 100vh;
+  /* Take at least full viewport height */
 }
 
+/* Main content area - pushes footer to bottom */
 .main-content-app {
   flex: 1;
+  /* Grows to fill available space */
   padding: 20px;
   max-width: 1400px;
+  /* Limit width on large screens */
   width: 100%;
   margin: 0 auto;
+  /* Center horizontally */
 }
 
+/* ===== Footer ===== */
 .app-footer {
   background-color: #333;
   color: white;
@@ -46,6 +66,7 @@ body.dark-mode {
   margin-top: 40px;
   border-top: 1px solid #ddd;
   transition: background-color 0.3s ease;
+  /* Smooth dark mode transition */
 }
 
 body.dark-mode .app-footer {
@@ -58,43 +79,61 @@ body.dark-mode .app-footer {
   font-size: 14px;
 }
 
+/* ===== Button Styles ===== */
 .btn {
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  /* Show pointer on hover */
   font-size: 14px;
   font-weight: 600;
+  /* Bold text */
   transition: all 0.3s ease;
+  /* Smooth animation */
   display: inline-block;
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  /* Hide ripple effect outside button */
 }
 
+/* Ripple effect on button hover - the animated circle */
 .btn::before {
   content: '';
+  /* Create invisible element for animation */
   position: absolute;
   top: 50%;
   left: 50%;
   width: 0;
   height: 0;
   border-radius: 50%;
+  /* Make it circular */
   background: rgba(255, 255, 255, 0.3);
+  /* White semi-transparent */
   transform: translate(-50%, -50%);
+  /* Center it */
   transition: width 0.6s ease, height 0.6s ease;
+  /* Animate size */
 }
 
+/* When hovering, expand the ripple */
 .btn:hover::before {
   width: 300px;
   height: 300px;
 }
 
+/* Button hover effect - lift up and add shadow */
 .btn:hover {
   transform: translateY(-3px);
+  /* Move up 3 pixels */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  /* Add shadow */
 }
 
+/* ===== Button Color Variants ===== */
+
+/* Primary button (blue) */
 .btn-primary {
   background-color: #007bff;
   color: white;
@@ -103,9 +142,11 @@ body.dark-mode .app-footer {
 
 .btn-primary:hover {
   background-color: #0056b3;
+  /* Darker blue on hover */
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
 }
 
+/* Secondary button (gray) */
 .btn-secondary {
   background-color: #6c757d;
   color: white;
@@ -115,6 +156,7 @@ body.dark-mode .app-footer {
   background-color: #5a6268;
 }
 
+/* Success button (green) */
 .btn-success {
   background-color: #28a745;
   color: white;
@@ -124,6 +166,7 @@ body.dark-mode .app-footer {
   background-color: #218838;
 }
 
+/* Danger button (red) */
 .btn-danger {
   background-color: #dc3545;
   color: white;
@@ -133,17 +176,22 @@ body.dark-mode .app-footer {
   background-color: #c82333;
 }
 
+/* ===== Button Sizes ===== */
+
+/* Small button */
 .btn-sm {
   padding: 6px 12px;
   font-size: 12px;
 }
 
+/* Large button - full width */
 .btn-large {
   padding: 14px 28px;
   font-size: 16px;
   width: 100%;
 }
 
+/* Back button */
 .btn-back {
   margin-bottom: 20px;
   background-color: #6c757d;
@@ -155,6 +203,7 @@ body.dark-mode .app-footer {
   background-color: #5a6268;
 }
 
+/* Edit button (yellow) */
 .btn-edit {
   background-color: #ffc107;
   color: #333;
@@ -167,6 +216,7 @@ body.dark-mode .app-footer {
   box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
 }
 
+/* Delete button (red) */
 .btn-delete {
   background-color: #dc3545;
   color: white;
@@ -178,12 +228,16 @@ body.dark-mode .app-footer {
   box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
 }
 
+/* Close form button */
 .btn-close {
   background-color: #6c757d;
   color: white;
   margin-top: 10px;
 }
 
+/* ===== Messages ===== */
+
+/* Error banner (light red) */
 .error-banner {
   background-color: #f8d7da;
   color: #721c24;
@@ -193,6 +247,7 @@ body.dark-mode .app-footer {
   border: 1px solid #f5c6cb;
 }
 
+/* Success banner (light green) */
 .success-banner {
   background-color: #d4edda;
   color: #155724;
@@ -202,6 +257,7 @@ body.dark-mode .app-footer {
   border: 1px solid #c3e6cb;
 }
 
+/* Error text inside forms */
 .error-message {
   color: #dc3545;
   font-size: 12px;
@@ -209,6 +265,9 @@ body.dark-mode .app-footer {
   margin-top: 5px;
 }
 
+/* ===== Loading and Empty State ===== */
+
+/* Loading spinner text */
 .loading {
   text-align: center;
   padding: 40px 20px;
@@ -216,6 +275,7 @@ body.dark-mode .app-footer {
   color: #666;
 }
 
+/* Empty state message (no items) */
 .empty-state {
   text-align: center;
   padding: 60px 20px;
@@ -230,6 +290,9 @@ body.dark-mode .app-footer {
   transition: color 0.3s ease;
 }
 
+/* ===== Dark Mode Overrides ===== */
+
+/* Dark mode container */
 body.dark-mode .empty-state {
   background-color: #2a2a2a;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -239,6 +302,7 @@ body.dark-mode .empty-state p {
   color: #a0a0a0;
 }
 
+/* Dark mode message colors */
 body.dark-mode .error-banner {
   background-color: #3d2a2a;
   color: #ffcccc;
@@ -255,6 +319,9 @@ body.dark-mode .loading {
   color: #a0a0a0;
 }
 
+/* ===== Responsive Design ===== */
+
+/* Tablet screens (max 768px wide) */
 @media (max-width: 768px) {
   .main-content-app {
     padding: 15px;
@@ -270,6 +337,7 @@ body.dark-mode .loading {
   }
 }
 
+/* Small phones (max 480px wide) */
 @media (max-width: 480px) {
   .main-content-app {
     padding: 10px;

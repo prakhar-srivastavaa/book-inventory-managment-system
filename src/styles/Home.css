@@ -1,12 +1,15 @@
+/* ===== Home Page Container ===== */
 .home {
     padding: 20px 0;
-    min-height: calc(100vh - 300px);
+    min-height: calc(100vh - 300px); /* Take at least full viewport minus navbar/footer */
 }
 
+/* ===== Header with Title ===== */
 .home-header {
     text-align: center;
     margin-bottom: 40px;
     padding: 20px;
+    /* Gradient background - blue to purple */
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border-radius: 8px;
@@ -21,40 +24,47 @@ body.dark-mode .home-header {
 .home-header h1 {
     font-size: 36px;
     margin: 0 0 10px 0;
+    /* Add shadow to text for better visibility on gradient */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .home-header p {
     font-size: 18px;
     margin: 0;
-    opacity: 0.95;
+    opacity: 0.95; /* Slightly transparent */
 }
 
+/* ===== Layout Grid ===== */
+/* Split page into sidebar (1/4 width) and main content (3/4 width) */
 .home-container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 3fr; /* Sidebar is 1/4, main is 3/4 */
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* ===== Left Sidebar (Form) ===== */
 .sidebar {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack items vertically */
     gap: 20px;
 }
 
+/* ===== Main Content Area ===== */
 .main-content {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+/* ===== Books Section (Table Container) ===== */
 .books-section {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 25px;
+    /* Smooth transition when switching dark mode */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -69,6 +79,7 @@ body.dark-mode .books-section {
     margin-top: 0;
     margin-bottom: 20px;
     padding-bottom: 15px;
+    /* Blue underline under title */
     border-bottom: 2px solid #007bff;
     transition: color 0.3s ease, border-bottom-color 0.3s ease;
 }
@@ -78,11 +89,13 @@ body.dark-mode .books-section h2 {
     border-bottom-color: #0056b3;
 }
 
+/* ===== Form Section (when editing/adding) ===== */
 .form-section {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 0;
+    /* Slide in animation when form appears */
     animation: slideIn 0.3s ease;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -92,15 +105,16 @@ body.dark-mode .form-section {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Animation: slide form in from left */
 @keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateX(-20px);
+        transform: translateX(-20px); /* Start 20px to the left */
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(0); /* End at normal position */
     }
 }
 
@@ -108,6 +122,7 @@ body.dark-mode .form-section {
     width: 100%;
 }
 
+/* ===== Large Button ===== */
 .btn-large {
     padding: 16px;
     font-size: 16px;
@@ -122,28 +137,31 @@ body.dark-mode .form-section {
 
 .btn-large:hover {
     background-color: #0056b3;
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Lift up on hover */
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
+/* ===== Message Banners ===== */
 .error-banner,
 .success-banner {
     border-radius: 5px;
     padding: 15px 20px;
     margin-bottom: 20px;
     font-weight: 500;
+    /* Slide down animation when messages appear */
     animation: slideDown 0.3s ease;
 }
 
+/* Animation: slide messages down from top */
 @keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-10px); /* Start 10px above */
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0); /* End at normal position */
     }
 }
 
@@ -159,6 +177,7 @@ body.dark-mode .form-section {
     border: 1px solid #c3e6cb;
 }
 
+/* ===== Loading State ===== */
 .loading {
     text-align: center;
     padding: 60px 20px;
@@ -171,12 +190,17 @@ body.dark-mode .loading {
     color: #a0a0a0;
 }
 
+/* ===== Responsive Design ===== */
+
+/* Large screens: keep sidebar and content side by side */
+/* Medium screens: stack sidebar and content */
 @media (max-width: 1024px) {
     .home-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column */
         gap: 20px;
     }
 
+    /* Move sidebar below main content on smaller screens */
     .sidebar {
         order: 2;
     }
@@ -186,6 +210,7 @@ body.dark-mode .loading {
     }
 }
 
+/* Tablet screens */
 @media (max-width: 768px) {
     .home {
         padding: 15px 0;
@@ -219,6 +244,7 @@ body.dark-mode .loading {
     }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
     .home {
         padding: 10px 0;

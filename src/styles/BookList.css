@@ -1,3 +1,4 @@
+/* ===== Book List Container ===== */
 .book-list-container {
     background-color: white;
     border-radius: 12px;
@@ -6,10 +7,12 @@
     transition: all 0.3s ease;
 }
 
+/* Enhance shadow on hover */
 .book-list-container:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
+/* Dark mode styling */
 body.dark-mode .book-list-container {
     background-color: #2a2a2a;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -19,13 +22,15 @@ body.dark-mode .book-list-container:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
+/* ===== Table Wrapper (Scrollable Container) ===== */
 .table-wrapper {
-    overflow-x: hidden;
-    max-height: 500px;
+    overflow-x: hidden; /* Hide horizontal scroll on large screens */
+    max-height: 500px; /* Max height for vertical scrolling */
     overflow-y: scroll;
     position: relative;
 }
 
+/* On tablets and smaller, allow horizontal scroll if needed */
 @media (max-width: 1024px) {
     .table-wrapper {
         overflow-x: auto;
@@ -33,29 +38,32 @@ body.dark-mode .book-list-container:hover {
     }
 }
 
+/* ===== Table ===== */
 .books-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Remove space between cells */
     font-size: 15px;
 }
 
+/* ===== Table Header ===== */
 .books-table thead {
     background-color: #f8f9fa;
-    position: sticky;
+    position: sticky; /* Stays at top when scrolling */
     top: 0;
     z-index: 20;
 }
 
 .books-table th {
-    padding: 18px;
+    padding: 18px; /* Good spacing inside cells */
     text-align: left;
     font-weight: 600;
     color: white;
     border-bottom: 2px solid #dee2e6;
-    background-color: #007bff;
+    background-color: #007bff; /* Blue header */
     transition: all 0.3s ease;
 }
 
+/* Header hover effect - lift up slightly */
 .books-table th:hover {
     background-color: #0056b3;
     transform: translateY(-1px);
@@ -71,6 +79,7 @@ body.dark-mode .books-table th:hover {
     background-color: #004085;
 }
 
+/* ===== Table Cells ===== */
 .books-table td {
     padding: 16px 18px;
     border-bottom: 1px solid #dee2e6;
@@ -83,16 +92,19 @@ body.dark-mode .books-table td {
     border-bottom-color: #444;
 }
 
+/* ===== Table Rows ===== */
 .books-table tbody tr {
     transition: all 0.3s ease;
 }
 
+/* Hover effect on rows - scale up and add shadow */
 .books-table tbody tr:hover {
     background-color: #f8f9fa;
-    transform: scale(1.005);
+    transform: scale(1.005); /* Slightly larger */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Alternate row colors */
 .books-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -106,6 +118,7 @@ body.dark-mode .books-table tbody tr:nth-child(even) {
     background-color: #252525;
 }
 
+/* ===== Book Title Link ===== */
 .book-link {
     color: #007bff;
     text-decoration: none;
@@ -115,30 +128,33 @@ body.dark-mode .books-table tbody tr:nth-child(even) {
     position: relative;
 }
 
+/* Animated underline on link */
 .book-link::after {
-    content: '';
+    content: ''; /* Create invisible line element */
     position: absolute;
     bottom: -2px;
     left: 0;
-    width: 0;
+    width: 0; /* Start with no width */
     height: 2px;
     background-color: #007bff;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease; /* Animate width */
 }
 
+/* Hover effect - slide right and underline */
 .book-link:hover {
     color: #0056b3;
-    transform: translateX(2px);
+    transform: translateX(2px); /* Slide right */
 }
 
 .book-link:hover::after {
-    width: 100%;
+    width: 100%; /* Underline appears */
 }
 
+/* ===== Action Buttons Cell ===== */
 .actions-cell {
     display: flex;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Wrap buttons on small screens */
     align-items: center;
 }
 
@@ -148,6 +164,7 @@ body.dark-mode .books-table tbody tr:nth-child(even) {
     white-space: nowrap;
 }
 
+/* ===== Empty State (No Books) ===== */
 .empty-state {
     text-align: center;
     padding: 60px 20px;
@@ -173,6 +190,9 @@ body.dark-mode .empty-state p {
     color: #a0a0a0;
 }
 
+/* ===== Responsive Design ===== */
+
+/* Large tablets (max 1024px) */
 @media (max-width: 1024px) {
     .table-wrapper {
         max-height: 500px;
@@ -184,6 +204,7 @@ body.dark-mode .empty-state p {
         font-size: 13px;
     }
 
+    /* Stack action buttons vertically on smaller screens */
     .actions-cell {
         flex-direction: column;
         gap: 4px;
@@ -194,6 +215,7 @@ body.dark-mode .empty-state p {
     }
 }
 
+/* Tablets (max 768px) */
 @media (max-width: 768px) {
     .table-wrapper {
         max-height: 350px;
@@ -208,6 +230,7 @@ body.dark-mode .empty-state p {
         padding: 10px;
     }
 
+    /* Hide less important columns on tablets */
     .books-table th:nth-child(6),
     .books-table td:nth-child(6),
     .books-table th:nth-child(7),
@@ -221,6 +244,7 @@ body.dark-mode .empty-state p {
     }
 }
 
+/* Small phones (max 480px) */
 @media (max-width: 480px) {
     .table-wrapper {
         max-height: 300px;
@@ -235,6 +259,8 @@ body.dark-mode .empty-state p {
         padding: 8px 6px;
     }
 
+    /* Show only essential columns on mobile */
+    /* Hide Publisher, Published Date, Pages, and Actions on very small screens */
     .books-table th:nth-child(4),
     .books-table td:nth-child(4),
     .books-table th:nth-child(5),

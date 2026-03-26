@@ -1,3 +1,4 @@
+/* ===== Book Form Container ===== */
 .book-form {
     background-color: white;
     padding: 30px;
@@ -13,6 +14,7 @@ body.dark-mode .book-form {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* ===== Form Title ===== */
 .book-form h2 {
     margin-bottom: 25px;
     color: #333;
@@ -27,10 +29,11 @@ body.dark-mode .book-form h2 {
     border-bottom-color: #0056b3;
 }
 
+/* ===== Form Group (Label + Input) ===== */
 .form-group {
     margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack label above input */
 }
 
 .form-group label {
@@ -45,6 +48,7 @@ body.dark-mode .form-group label {
     color: #e0e0e0;
 }
 
+/* ===== Form Inputs ===== */
 .form-group input,
 .form-group textarea {
     padding: 12px;
@@ -52,6 +56,7 @@ body.dark-mode .form-group label {
     border-radius: 5px;
     font-size: 14px;
     font-family: inherit;
+    /* Smooth transition for all interactive states */
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     background-color: white;
     color: #333;
@@ -64,40 +69,45 @@ body.dark-mode .form-group textarea {
     border-color: #555;
 }
 
+/* ===== Input Focus State ===== */
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none; /* Remove default browser outline */
+    border-color: #007bff; /* Blue border */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1); /* Blue glow */
 }
 
+/* ===== Input Error State ===== */
 .form-group input.input-error,
 .form-group textarea.input-error {
-    border-color: #dc3545;
-    background-color: #fff5f5;
+    border-color: #dc3545; /* Red border */
+    background-color: #fff5f5; /* Light red background */
 }
 
 .form-group input.input-error:focus,
 .form-group textarea.input-error:focus {
-    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1); /* Red glow */
 }
 
+/* ===== Textarea Specific ===== */
 .form-group textarea {
-    resize: vertical;
-    min-height: 120px;
+    resize: vertical; /* Allow only vertical resize */
+    min-height: 120px; /* Minimum height */
 }
 
+/* ===== Error Message ===== */
 .error-message {
-    color: #dc3545;
+    color: #dc3545; /* Red color */
     font-size: 12px;
     margin-top: 5px;
     font-weight: 500;
 }
 
+/* ===== Character Count ===== */
 .char-count {
     font-size: 12px;
     color: #666;
-    text-align: right;
+    text-align: right; /* Align to right side */
     margin-top: 5px;
     transition: color 0.3s ease;
 }
@@ -106,6 +116,7 @@ body.dark-mode .char-count {
     color: #a0a0a0;
 }
 
+/* ===== Form Buttons Container ===== */
 .form-buttons {
     display: flex;
     gap: 10px;
@@ -113,16 +124,17 @@ body.dark-mode .char-count {
 }
 
 .form-buttons button {
-    flex: 1;
+    flex: 1; /* All buttons equal width */
 }
 
+/* ===== Success Message ===== */
 .success-message {
-    background-color: #d4edda;
-    color: #155724;
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green text */
     padding: 12px;
     border-radius: 5px;
     margin-top: 15px;
-    border: 1px solid #c3e6cb;
+    border: 1px solid #c3e6cb; /* Green border */
     text-align: center;
     font-weight: 500;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -134,6 +146,9 @@ body.dark-mode .success-message {
     border-color: #335a33;
 }
 
+/* ===== Responsive Design ===== */
+
+/* Tablets (max 768px) */
 @media (max-width: 768px) {
     .book-form {
         padding: 20px;
@@ -156,6 +171,7 @@ body.dark-mode .success-message {
     }
 }
 
+/* Small phones (max 480px) */
 @media (max-width: 480px) {
     .book-form {
         padding: 15px;
@@ -182,7 +198,7 @@ body.dark-mode .success-message {
     }
 
     .form-buttons {
-        flex-direction: column;
+        flex-direction: column; /* Stack buttons vertically */
         gap: 8px;
     }
 }

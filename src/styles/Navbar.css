@@ -1,54 +1,60 @@
+/* ===== Navigation Bar ===== */
 .navbar {
-    background-color: #333;
+    background-color: #333; /* Dark gray background */
     padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: sticky; /* Stays at top when scrolling */
     top: 0;
-    z-index: 100;
+    z-index: 100; /* Appears above other content */
 }
 
+/* ===== Navbar Container (Inner Layout) ===== */
 .navbar-container {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center on page */
     padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Side-by-side layout */
+    justify-content: space-between; /* Logo on left, toggle on right */
+    align-items: center; /* Vertically centered */
 }
 
+/* ===== Logo ===== */
 .navbar-logo {
     font-size: 24px;
     font-weight: bold;
     color: white;
-    text-decoration: none;
-    display: flex;
+    text-decoration: none; /* Remove underline from link */
+    display: flex; /* Align icon and text */
     align-items: center;
-    gap: 8px;
+    gap: 8px; /* Space between emoji and text */
 }
 
 .navbar-logo:hover {
-    color: #007bff;
+    color: #007bff; /* Blue color on hover */
     transition: color 0.3s ease;
 }
 
+/* ===== Theme Toggle Button ===== */
 .theme-toggle {
-    background: none;
-    border: none;
+    background: none; /* Transparent background */
+    border: none; /* No border */
     font-size: 24px;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 5px;
+    /* Slight background on hover */
     transition: background-color 0.3s ease;
 }
 
 .theme-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /* Slight white overlay */
 }
 
+/* ===== Navigation Menu ===== */
 .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+    display: flex; /* Horizontal layout */
+    list-style: none; /* Remove bullet points */
+    gap: 2rem; /* Space between menu items */
     margin: 0;
     padding: 0;
 }
@@ -57,6 +63,7 @@
     margin: 0;
 }
 
+/* ===== Navigation Links ===== */
 .nav-link {
     color: white;
     text-decoration: none;
@@ -65,31 +72,35 @@
 }
 
 .nav-link:hover {
-    color: #007bff;
+    color: #007bff; /* Blue on hover */
 }
 
+/* ===== Responsive Design ===== */
+
+/* Tablets (max 768px) */
 @media (max-width: 768px) {
     .navbar-container {
-        padding: 0 15px;
+        padding: 0 15px; /* Less horizontal padding */
     }
 
     .navbar-logo {
-        font-size: 20px;
+        font-size: 20px; /* Smaller logo */
     }
 
     .nav-menu {
-        gap: 1rem;
+        gap: 1rem; /* Smaller gaps */
     }
 
     .nav-link {
-        font-size: 14px;
+        font-size: 14px; /* Smaller text */
     }
 }
 
+/* Small phones (max 480px) */
 @media (max-width: 480px) {
     .navbar-container {
         padding: 0 10px;
-        flex-direction: column;
+        flex-direction: column; /* Stack vertically on tiny screens */
         gap: 10px;
     }
 
@@ -99,8 +110,8 @@
     }
 
     .nav-menu {
-        width: 100%;
-        justify-content: center;
+        width: 100%; /* Full width on mobile */
+        justify-content: center; /* Center menu items */
         gap: 1rem;
     }
 }

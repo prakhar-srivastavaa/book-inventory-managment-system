@@ -1,71 +1,105 @@
+/* ===== Global Reset ===== */
+/* Remove default spacing from all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* Include padding/border in width/height calculations */
 }
 
+/* Make html and body take full viewport height */
 html,
 body {
   height: 100%;
   width: 100%;
 }
 
+/* ===== Body Default Styles ===== */
 body {
   margin: 0;
+  /* Font stack - use system fonts for better performance and consistency */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  /* Font smoothing - makes text render more smoothly on browsers */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f5f5f5;
 }
 
+/* ===== Code Block Styles ===== */
+/* For <code> tags and monospace display */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+/* ===== React Root Element ===== */
+/* The div with id="root" where the React app mounts */
 #root {
   height: 100%;
   width: 100%;
 }
 
+/* ===== Scrollbar Styling ===== */
+/* Customize the scrollbar appearance in Chromium browsers */
+
+/* Scrollbar track (background) */
 ::-webkit-scrollbar {
   width: 8px;
+  /* Width of vertical scrollbar */
   height: 8px;
+  /* Height of horizontal scrollbar */
 }
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
+  /* Light gray background */
 }
 
+/* Scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
   background: #888;
+  /* Gray color */
   border-radius: 4px;
+  /* Rounded corners */
 }
 
+/* Darker color when hovering over scrollbar */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
+/* ===== Text Selection Styles ===== */
+/* Change colors when user selects/highlights text */
+
 ::selection {
   background-color: #007bff;
+  /* Blue highlight background */
   color: white;
+  /* White text */
 }
 
+/* Firefox uses ::-moz-selection instead */
 ::-moz-selection {
   background-color: #007bff;
   color: white;
 }
 
+/* ===== Responsive Typography ===== */
+
+/* Tablet screens (max 768px) */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
+    /* Slightly smaller text */
   }
 }
 
+/* Small phones (max 480px) */
 @media (max-width: 480px) {
   body {
     font-size: 13px;
+    /* Even smaller text */
   }
 }
